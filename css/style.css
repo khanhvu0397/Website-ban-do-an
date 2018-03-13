@@ -136,7 +136,9 @@
 
 /*--showimage--*/
 #showimage{
-	padding: 0 220px;
+	
+	border: 2px solid red;
+	margin-left: 220px;
 	
 }
 
