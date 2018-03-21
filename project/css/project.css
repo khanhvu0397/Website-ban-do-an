@@ -1,0 +1,13 @@
+.header-nav li {
+    margin-left: 30px;
+}
+.header-nav li:hover{
+    border-bottom: 1px solid white;
+}
+body {
+    padding-top: 150px;
+}
+.main-content {
+    
+    margin-top: 50px;
+}
