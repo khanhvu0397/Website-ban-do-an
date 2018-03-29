@@ -7,7 +7,7 @@
                     <span> - 175 Tây Sơn , Đống Đa , Hà Nội</span>
                     <div style="margin-top: 10px;"></div>
                     <span class="text-danger font-weight-bold">HotLine:</span>
-                    <span> 0972 888 ***  /</span>
+                    <span> 0969 881 524  /</span>
                     <span class="text-danger font-weight-bold">Email:</span>
                     <span> HKT@gmail.com</span>
                 </div>

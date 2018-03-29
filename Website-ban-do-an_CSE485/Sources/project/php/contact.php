@@ -13,19 +13,32 @@
 <body>
 	<?php include ('header.php'); ?>
 	
-	<div class="container-fruit" style="padding-left: 200px; padding-right: 200px;">
+	<div class="container">
+        <div class="row">
+            <?php include ('left.php'); ?>
+            <!-- left-section-bar -->
+
+           
+            <div class="col-md-8">          
+	            <div class="container-fruit" style="padding-left: 50px; padding-right: 50px;">
 		<div class="row">
 			<div class="col-md-12">
 				<h3 style="color: blue;border-bottom: 1px solid red;">Liên hệ</h3>
 
-				<h2><strong>SHIP ĐỒ ĂN ĐÊM BẢO ANH</strong></h2>
-				<p><strong>Địa chỉ: </strong>Ngõ 58 , Trần Bình , Cầu Giấy , Hà Nội . </p>
-				<p><strong>Điện thoại: </strong>0972 581 961 - 094 960 2772</p>
+				<h2><strong>SHIP ĐỒ ĂN ĐÊM HKT</strong></h2>
+				<p><strong>Địa chỉ: </strong>175 Tây Sơn , Đống Đa , Hà Nội . </p>
+				<p><strong>Điện thoại: </strong>0969 881 524 - 0971 852 897</p>
 				<p><strong>Email: </strong>HKT@gmail.com</p>
 			</div>
 
 		</div>
 	</div>
+ 			</div>
+ 
+        </div>        
+    </div>
+
+	
 	<?php include ('footer.php'); ?>
 		    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,6 +1,6 @@
  <nav class="navbar navbar-expand-md bg-danger navbar-dark fixed-top">
         <div class="container">
-            <h2><a href="#" class="navbar-brand">NHÀ HÀNG HKT</a></h2>
+            <h2><a href="project.php  ?>" class="navbar-brand">NHÀ HÀNG HKT</a></h2>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
             </button>

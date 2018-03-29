@@ -14,21 +14,34 @@
 	<?php 
 		include ('header.php');
 	 ?>
-	<div class="container-fluid" style="padding-left: 200px; padding-right: 200px;">
-	<div class="row">
-		<div class="col-md-12">
-			<h2 style="color: blue; border-bottom: 1px solid red; text-align: center;" >
-				Tin Tức
-			</h2>
-			<a href="news1"><h5>Tưng bừng khuyến mãi ngày 8-3</h5></a>
-			<p>Tưng bừng khuyến mại mừng ngày <br> quốc tế phụ nữ 8/3 Hòa cùng không khí rộn ràng <br> ngày quốc tế phụ nữ 8/3, thay lời chúc tới <br>những người mẹ - người phụ nữ <br>trong ngày này,cửa hàng SHIP ĐỒ...</p>
-			
-			<p>
-				<a class="btn" href="news1.php">Xem thêm »</a>
-			</p>
-		</div>
-	</div>
-</div>
+	
+	<div class="container">
+        <div class="row">
+            <?php include ('left.php'); ?>
+            <!-- left-section-bar -->
+
+           
+            <div class="col-md-8">          
+	            <div class="container-fluid" style="padding-left: 50px; padding-right: 50px;">
+				<div class="row">
+					<div class="col-md-12">
+					<h2 style="color: blue; border-bottom: 1px solid red; text-align: center;" >
+						Tin Tức
+					</h2>
+						<a href="news1"><h5>Tưng bừng khuyến mãi ngày 8-3</h5></a>
+						<p>Tưng bừng khuyến mại mừng ngày <br> quốc tế phụ nữ 8/3 Hòa cùng không khí rộn ràng <br> ngày quốc tế phụ nữ 8/3, thay lời chúc tới <br>những người mẹ - người phụ nữ <br>trong ngày này,cửa hàng SHIP ĐỒ...</p>		
+						<p>
+						<a class="btn" href="news1.php">Xem thêm »</a>
+						</p>
+					</div>
+				</div>
+				</div>
+ 			</div>
+ 
+        </div>        
+    </div>
+
+	
 
 	 <?php 
 	 	include ('footer.php');
