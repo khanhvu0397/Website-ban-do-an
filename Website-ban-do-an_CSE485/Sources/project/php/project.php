@@ -82,6 +82,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </section>
             </div>
         </div>
@@ -270,6 +271,9 @@
                             </div>
                         </div>
                     </div>
+                    <button style = " float: left; margin-top:15px;" type="button" class="btn btn-success" onclick="location.href='../cart/ruoubia-addToCart.php'" style="margin-left: 120px;padding-left: 10px;">
+                Xem Thêm
+            </button>
                 </section>
             </div>
         </div>
