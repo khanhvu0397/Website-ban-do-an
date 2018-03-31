@@ -85,7 +85,12 @@
                 </section>
             </div>
         </div>
-    </div>
+    </div></br>
+
+     <button type="button" class="btn btn-success" onclick="location.href='com-addToCart.php'" style="margin-left: 120px;padding-left: 10px;">
+                Xem Thêm
+            </button> 
+    <!-- <input type="button" value="Xem Thêm" class="button" onclick="location.href='left.php'"> -->
     <!-- End Com Section -->
 
 
