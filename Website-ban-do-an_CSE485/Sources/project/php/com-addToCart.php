@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $com_ids = array();
@@ -68,15 +69,19 @@ function pre_r($array){
 <!DOCTYPE html>
 <html lang="vi">
     <head>
+        <meta charset="utf-8">
         <title>Shopping Cart (working)</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="stylesheet" href="../css/cart.css" />
+        
     </head>
     <body>
+        
         <div class="container">
         <?php
 
-        $connect = mysqli_connect('localhost', 'root', '', 'baoanh');
+        $connect = mysqli_connect('localhost', 'root', '', 'cart');
+        mysqli_set_charset($connect,"utf8");
         $query = 'SELECT * FROM com ORDER by id ASC';
         $result = mysqli_query($connect, $query);
 
@@ -90,12 +95,12 @@ function pre_r($array){
                         <div class="products">
                             <img src="<?php echo $com['image']; ?>" class="img-responsive" />
                             <h4 class="text-info"><?php echo $com['name']; ?></h4>
-                            <h4>$ <?php echo $com['price']; ?></h4>
+                            <h4> <?php echo $com['price']; ?> VND</h4>
                             <input type="text" name="quantity" class="form-control" value="1" />
                             <input type="hidden" name="name" value="<?php echo $com['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $com['price']; ?>" />
                             <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-info"
-                                   value="Add to Cart" />
+                                   value="Thêm vào giỏ" />
                         </div>
                     </form>
                 </div>
@@ -126,8 +131,8 @@ function pre_r($array){
         <tr>  
            <td><?php echo $com['name']; ?></td>  
            <td><?php echo $com['quantity']; ?></td>  
-           <td>$ <?php echo $com['price']; ?></td>  
-           <td>$ <?php echo number_format($com['quantity'] * $com['price'], 2); ?></td>  
+           <td> <?php echo $com['price']; ?> VND</td>  
+           <td> <?php echo number_format($com['quantity'] * $com['price'], 2); ?> VND</td>  
            <td>
                <a href="com-addToCart.php?action=delete&id=<?php echo $com['id']; ?>">
                     <div class="btn-danger">Xoá</div>
@@ -140,7 +145,7 @@ function pre_r($array){
         ?>  
         <tr>  
              <td colspan="3" align="right">Total</td>  
-             <td align="right">$ <?php echo number_format($total, 2); ?></td>  
+             <td align="right"> <?php echo number_format($total, 2); ?> VND</td>  
              <td></td>  
         </tr>  
         <tr>
@@ -150,7 +155,7 @@ function pre_r($array){
                 if (isset($_SESSION['shopping_cart'])):
                 if (count($_SESSION['shopping_cart']) > 0):
              ?>
-                <a href="#" class="button">Checkout</a>
+                <a href="project.php" class="button">Checkout</a>
              <?php endif; endif; ?>
             </td>
         </tr>
@@ -160,5 +165,10 @@ function pre_r($array){
         </table>  
          </div>
         </div>
+
+        
+
+
+
     </body>
 </html>
