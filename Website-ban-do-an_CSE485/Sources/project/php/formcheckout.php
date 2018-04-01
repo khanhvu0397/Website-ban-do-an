@@ -50,7 +50,7 @@
                     <input type="email" name="email" class="form-control" id="emails" autocomplete="off">
                     <span id="emailids" class="text-danger font-weight-bold"></span>
                 </div>
-                <input type="submit" name="submit" value="Submit" class="btn btn-success" autocomplete="off">
+                <input  type="submit" name="submit" value="Submit" class="btn btn-success" autocomplete="off">
             </form>
         </div>
     </div>

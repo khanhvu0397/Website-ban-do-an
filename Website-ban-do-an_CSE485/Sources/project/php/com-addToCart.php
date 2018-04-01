@@ -4,16 +4,17 @@ session_start();
 $com_ids = array();
 //session_destroy();
 
-//check if Add to Cart button has been submitted
+//Kiểm tra xem nút thêm vào giỏ đã đc submit chưa
 if(filter_input(INPUT_POST, 'add_to_cart')){
     if(isset($_SESSION['shopping_cart'])){
         
-        //keep track of how mnay products are in the shopping cart
+        //theo giữ xem có bao nhiêu sp trong giỏ hàng
         $count = count($_SESSION['shopping_cart']);
         
-        //create sequantial array for matching array keys to products id's
+        //tạo mảng mới để đối chiếu key id của sp
         $com_ids = array_column($_SESSION['shopping_cart'], 'id');
         
+        //
         if (!in_array(filter_input(INPUT_GET, 'id'), $com_ids)){
         $_SESSION['shopping_cart'][$count] = array
             (
@@ -23,19 +24,21 @@ if(filter_input(INPUT_POST, 'add_to_cart')){
                 'quantity' => filter_input(INPUT_POST, 'quantity')
             );   
         }
-        else { //product already exists, increase quantity
-            //match array key to id of the product being added to the cart
+        else { //nếu sp đó tồn tại thì tăng thêm số lượng
+            //đối chiếu key của mảng với key của sp đã được thêm vào giỏ hàng
             for ($i = 0; $i < count($com_ids); $i++){
                 if ($com_ids[$i] == filter_input(INPUT_GET, 'id')){
-                    //add item quantity to the existing product in the array
+                    //cộng sô lượng đồ ăn vào sp đó đã tồn tại
+                    
                     $_SESSION['shopping_cart'][$i]['quantity'] += filter_input(INPUT_POST, 'quantity');
                 }
             }
         }
         
     }
-    else { //if shopping cart doesn't exist, create first product with array key 0
-        //create array using submitted form data, start from key 0 and fill it with values
+    else {//nếu sp đó ko tồn tại thì tạo ra 1 sp mới với mảng có key = 0
+         //tạo ra mảng khi người dùng kích thêm vào giỏ, bắt đầu từ key 0 đổ giá trị vào mảng
+        
         $_SESSION['shopping_cart'][0] = array
         (
             'id' => filter_input(INPUT_GET, 'id'),
@@ -47,10 +50,11 @@ if(filter_input(INPUT_POST, 'add_to_cart')){
 }
 
 if(filter_input(INPUT_GET, 'action') == 'delete'){
-    //loop through all products in the shopping cart until it matches with GET id variable
+    //lắp qua toàn bộ sp có trong giỏ hàng đến khi nó trùng với biến Get id
     foreach($_SESSION['shopping_cart'] as $key => $com){
         if ($com['id'] == filter_input(INPUT_GET, 'id')){
-            //remove product from the shopping cart when it matches with the GET id
+            //xóa sp trong giỏ hàng khi nó trùng với biến Get id
+            
             unset($_SESSION['shopping_cart'][$key]);
         }
     }
@@ -79,18 +83,21 @@ function pre_r($array){
         
         <div class="container">
         <?php
-
+        //kết nối csdl
         $connect = mysqli_connect('localhost', 'root', '', 'cart');
         mysqli_set_charset($connect,"utf8");
+        //truy vấn 
         $query = 'SELECT * FROM com ORDER by id ASC';
         $result = mysqli_query($connect, $query);
 
         if ($result):
             if(mysqli_num_rows($result)>0):
+                //đổ dữ liệu từ biến result vào mảng cơm
                 while($com = mysqli_fetch_assoc($result)):
                 //print_r($product);
                 ?>
                 <div class="col-sm-4 col-md-3" >
+                    <!-- load dữ liệu từ database để hiện thị ra sp -->
                     <form method="post" action="com-addToCart.php?action=add&id=<?php echo $com['id']; ?>">
                         <div class="products">
                             <img style="height: 200px" src=" <?php echo $com['image']; ?>" class="img-responsive" />
@@ -155,7 +162,7 @@ function pre_r($array){
                 if (isset($_SESSION['shopping_cart'])):
                 if (count($_SESSION['shopping_cart']) > 0):
              ?>
-                <a href="project.php" class="button">Thanh toán & Trở về</a>
+                <a href="formcheckout.php" class="button">Thanh toán</a>
              <?php endif; endif; ?>
             </td>
         </tr>

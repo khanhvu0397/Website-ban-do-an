@@ -11,7 +11,7 @@
     <!-- External Css -->
     <link rel="stylesheet" href="../css/project.css">
    
-    <title>Hello, world!</title>
+    <title>Ship Đồ Ăn HKT</title>
 </head>
 
 <body>

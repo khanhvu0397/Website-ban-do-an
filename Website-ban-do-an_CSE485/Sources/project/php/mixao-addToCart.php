@@ -155,7 +155,7 @@ function pre_r($array){
                 if (isset($_SESSION['shopping_cart'])):
                 if (count($_SESSION['shopping_cart']) > 0):
              ?>
-                <a href="project.php" class="button text-center">Checkout</a>
+                <a href="formcheckout.php" class="button text-center">Thanh toán</a>
              <?php endif; endif; ?>
             </td>
         </tr>
