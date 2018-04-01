@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- External Css -->
     <link rel="stylesheet" href="../css/project.css">
-
-
+   
     <title>Hello, world!</title>
 </head>
 
@@ -87,11 +86,10 @@
             </div>
         </div>
     </div></br>
-
-     <button type="button" class="btn btn-success" onclick="location.href='com-addToCart.php'" style="margin-left: 120px;padding-left: 10px;">
+    
+     <button type="button" class="btn btn-success" onclick="location.href='com-addToCart.php'"  style="margin-left: 120px;padding-left: 10px;">
                 Xem Thêm
             </button> 
-    <!-- <input type="button" value="Xem Thêm" class="button" onclick="location.href='left.php'"> -->
     <!-- End Com Section -->
 
 
@@ -123,7 +121,11 @@
                 </section>
             </div>
         </div>
-    </div>
+    </div></br>
+
+    <button type="button" class="btn btn-success" onclick="location.href='mixao-addToCart.php'"  style="margin-left: 120px;padding-left: 10px;">
+                Xem Thêm
+            </button> 
     <!-- End My Xao Section -->
 
 
@@ -174,7 +176,10 @@
                 </section>
             </div>
         </div>
-    </div>
+    </div></br>
+     <button type="button" class="btn btn-success" onclick="location.href='douong-addToCart.php'" style="margin-left: 120px;padding-left: 10px;">
+                Xem Thêm
+            </button> 
     <!-- End Do Uong Section -->
 
 
@@ -224,7 +229,11 @@
                 </section>
             </div>
         </div>
-    </div>
+    </div></br>
+
+    <button type="button" class="btn btn-success" onclick="location.href='anvat-addToCart.php'"  style="margin-left: 120px;padding-left: 10px;">
+                Xem Thêm
+            </button> 
     <!-- End An Vat Section -->
 
 
@@ -271,13 +280,14 @@
                             </div>
                         </div>
                     </div>
-                    <button style = " float: left; margin-top:15px;" type="button" class="btn btn-success" onclick="location.href='../cart/ruoubia-addToCart.php'" style="margin-left: 120px;padding-left: 10px;">
-                Xem Thêm
-            </button>
                 </section>
             </div>
         </div>
-    </div>
+    </div></br>
+
+    <button type="button" class="btn btn-success" onclick="location.href='ruoubia-addToCart.php'"  style="margin-left: 120px;padding-left: 10px;">
+                Xem Thêm
+            </button> 
     <!-- End Ruou Bia - Thuoc La Section -->
 
 

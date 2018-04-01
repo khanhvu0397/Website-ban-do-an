@@ -80,7 +80,7 @@ function pre_r($array){
         <div class="container">
         <?php
 
-        $connect = mysqli_connect('localhost', 'root', '', 'baoanh');
+        $connect = mysqli_connect('localhost', 'root', '', 'cart');
         mysqli_set_charset($connect,"utf8");
         $query = 'SELECT * FROM anvat ORDER by id ASC';
         $result = mysqli_query($connect, $query);

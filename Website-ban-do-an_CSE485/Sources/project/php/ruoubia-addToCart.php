@@ -12,9 +12,9 @@ if(filter_input(INPUT_POST, 'add_to_cart')){
         $count = count($_SESSION['shopping_cart']);
         
         //create sequantial array for matching array keys to products id's
-        $com_ids = array_column($_SESSION['shopping_cart'], 'id');
+        $ruoubia_ids = array_column($_SESSION['shopping_cart'], 'id');
         
-        if (!in_array(filter_input(INPUT_GET, 'id'), $com_ids)){
+        if (!in_array(filter_input(INPUT_GET, 'id'), $ruoubia_ids)){
         $_SESSION['shopping_cart'][$count] = array
             (
                 'id' => filter_input(INPUT_GET, 'id'),
@@ -25,8 +25,8 @@ if(filter_input(INPUT_POST, 'add_to_cart')){
         }
         else { //product already exists, increase quantity
             //match array key to id of the product being added to the cart
-            for ($i = 0; $i < count($com_ids); $i++){
-                if ($com_ids[$i] == filter_input(INPUT_GET, 'id')){
+            for ($i = 0; $i < count($ruoubia_ids); $i++){
+                if ($ruoubia_ids[$i] == filter_input(INPUT_GET, 'id')){
                     //add item quantity to the existing product in the array
                     $_SESSION['shopping_cart'][$i]['quantity'] += filter_input(INPUT_POST, 'quantity');
                 }
@@ -48,8 +48,8 @@ if(filter_input(INPUT_POST, 'add_to_cart')){
 
 if(filter_input(INPUT_GET, 'action') == 'delete'){
     //loop through all products in the shopping cart until it matches with GET id variable
-    foreach($_SESSION['shopping_cart'] as $key => $com){
-        if ($com['id'] == filter_input(INPUT_GET, 'id')){
+    foreach($_SESSION['shopping_cart'] as $key => $ruoubia){
+        if ($ruoubia['id'] == filter_input(INPUT_GET, 'id')){
             //remove product from the shopping cart when it matches with the GET id
             unset($_SESSION['shopping_cart'][$key]);
         }
@@ -76,31 +76,29 @@ function pre_r($array){
         
     </head>
     <body>
-        <?php 
-        include ('header.php');
-         ?>
+       
         <div class="container">
         <?php
 
-        $connect = mysqli_connect('localhost', 'root', 'tung051197', 'cart');
+        $connect = mysqli_connect('localhost', 'root', '', 'cart');
         mysqli_set_charset($connect,"utf8");
         $query = 'SELECT * FROM ruoubia ORDER by id ASC';
         $result = mysqli_query($connect, $query);
 
         if ($result):
             if(mysqli_num_rows($result)>0):
-                while($com = mysqli_fetch_assoc($result)):
+                while($ruoubia = mysqli_fetch_assoc($result)):
                 //print_r($product);
                 ?>
                 <div class="col-sm-4 col-md-3" >
-                    <form method="post" action="com-addToCart.php?action=add&id=<?php echo $com['id']; ?>">
+                    <form method="post" action="ruoubia-addToCart.php?action=add&id=<?php echo $ruoubia['id']; ?>">
                         <div class="products">
-                            <img style = "height:200px; " src="<?php echo $com['image']; ?>" class="img-responsive" />
-                            <h4 class="text-info"><?php echo $com['name']; ?></h4>
-                            <h4> <?php echo $com['price']; ?> VND</h4>
+                            <img style = "height:200px; " src="<?php echo $ruoubia['image']; ?>" class="img-responsive" />
+                            <h4 class="text-info"><?php echo $ruoubia['name']; ?></h4>
+                            <h4> <?php echo $ruoubia['price']; ?> VND</h4>
                             <input type="text" name="quantity" class="form-control" value="1" />
-                            <input type="hidden" name="name" value="<?php echo $com['name']; ?>" />
-                            <input type="hidden" name="price" value="<?php echo $com['price']; ?>" />
+                            <input type="hidden" name="name" value="<?php echo $ruoubia['name']; ?>" />
+                            <input type="hidden" name="price" value="<?php echo $ruoubia['price']; ?>" />
                             <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-info"
                                    value="Thêm vào giỏ" />
                         </div>
@@ -128,21 +126,21 @@ function pre_r($array){
             
              $total = 0;  
         
-             foreach($_SESSION['shopping_cart'] as $key => $com): 
+             foreach($_SESSION['shopping_cart'] as $key => $ruoubia): 
         ?>  
         <tr>  
-           <td><?php echo $com['name']; ?></td>  
-           <td><?php echo $com['quantity']; ?></td>  
-           <td> <?php echo $com['price']; ?> VND</td>  
-           <td> <?php echo number_format($com['quantity'] * $com['price'], 2); ?> VND</td>  
+           <td><?php echo $ruoubia['name']; ?></td>  
+           <td><?php echo $ruoubia['quantity']; ?></td>  
+           <td> <?php echo $ruoubia['price']; ?> VND</td>  
+           <td> <?php echo number_format($ruoubia['quantity'] * $ruoubia['price'], 2); ?> VND</td>  
            <td>
-               <a href="com-addToCart.php?action=delete&id=<?php echo $com['id']; ?>">
+               <a href="ruoubia-addToCart.php?action=delete&id=<?php echo $ruoubia['id']; ?>">
                     <div class="btn-danger">Xoá</div>
                </a>
            </td>  
         </tr>  
         <?php  
-                  $total = $total + ($com['quantity'] * $com['price']);  
+                  $total = $total + ($ruoubia['quantity'] * $ruoubia['price']);  
              endforeach;  
         ?>  
         <tr>  

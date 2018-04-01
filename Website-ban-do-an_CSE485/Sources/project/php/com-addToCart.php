@@ -93,7 +93,7 @@ function pre_r($array){
                 <div class="col-sm-4 col-md-3" >
                     <form method="post" action="com-addToCart.php?action=add&id=<?php echo $com['id']; ?>">
                         <div class="products">
-                            <img src="<?php echo $com['image']; ?>" class="img-responsive" />
+                            <img style="height: 200px" src=" <?php echo $com['image']; ?>" class="img-responsive" />
                             <h4 class="text-info"><?php echo $com['name']; ?></h4>
                             <h4> <?php echo $com['price']; ?> VND</h4>
                             <input type="text" name="quantity" class="form-control" value="1" />
@@ -155,7 +155,7 @@ function pre_r($array){
                 if (isset($_SESSION['shopping_cart'])):
                 if (count($_SESSION['shopping_cart']) > 0):
              ?>
-                <a href="project.php" class="button">Checkout</a>
+                <a href="project.php" class="button">Thanh toán & Trở về</a>
              <?php endif; endif; ?>
             </td>
         </tr>
